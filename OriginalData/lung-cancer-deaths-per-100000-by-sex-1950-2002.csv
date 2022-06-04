@@ -1,4 +1,4 @@
-Entity,Code,Year,age-standardized_death_rate_per_100k_male,age-standardized_death_rate_per_100k_female
+Entity,Code,Year,death_rate_per_100k_male,death_rate_per_100k_female
 Albania,ALB,1987,38.99,5.95
 Albania,ALB,1988,41.27,6.97
 Albania,ALB,1989,36.56,4.42
