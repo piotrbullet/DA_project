@@ -1,7 +1,7 @@
 data {
     int N; //number of observations
     int y[N]; // lung cancer
-    vector [N] pop //population
+    vector [N] pop; //population
 }
 
 parameters {
@@ -15,5 +15,5 @@ transformed parameters {
 
 model {
     theta ~ gamma(20, 430000);
-    y ~ poisson(lambda)
+    y ~ poisson(lambda);
 }
