@@ -1,19 +1,22 @@
 data {
     int N; //number of observations
-    int y[N]; // lung cancer
-    vector [N] pop; //population
+    int y[N]; // lung cancer deaths rate
 }
 
 parameters {
-    vector<lower=0,upper=1>[N] theta; // bounded deathrate estimate
+    real<lower=0,upper=1> theta; // bounded deathrate estimate
 }
-
-transformed parameters {
-    vector[N] lambda=pop.*theta;
-}
-
 
 model {
     theta ~ gamma(20, 430000);
-    y ~ poisson(lambda);
+    for (k in 1:N) {
+        y[k] ~ poisson(theta*cigs[k]);
+    }
+}
+
+generated quantities {
+   int y_sim[N];
+   for (k in 1:N) {
+       y_sim[k] = poisson_rng(theta*cigs[k]);
+   }
 }
