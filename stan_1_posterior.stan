@@ -1,6 +1,7 @@
 data {
     int N;
     real sqft[N];
+    real price[N]; 
 }
 
 parameters {
@@ -20,7 +21,7 @@ model {
    alpha ~ normal(44000, 2500);
    beta ~ normal(280, 50);
    sigma ~ exponential(0.5);
-   price ~ mu(mu, sigma);
+   price ~ normal(mu, sigma);
 }
 
 generated quantities {
