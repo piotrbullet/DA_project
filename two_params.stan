@@ -1,27 +1,27 @@
 data {
     int N;
-    vector [N] sqft;
+    vector [N] sqft_living;
+    vector [N] sqft_lot;
     vector [N] grade;
     real price[N];
 }
 
 parameters {
    real alpha;
-   real beta_sqft;
-   real beta_grade;
+   real beta_sqft_living;
+   real beta_sqft_lot;
    real <lower=0> sigma;
 } 
 
 transformed parameters {
-   vector [N] mu = sqft*beta_sqft+grade*beta_grade+alpha;
-   // vector [N] mu = (sqft*beta_sqft+alpha)*grade*beta_grade;
+   vector [N] mu = alpha+sqft_living*beta_sqft_living+sqft_lot*beta_sqft_lot;
 }
 
 model {
-   alpha ~ normal(44000, 2500);
-   beta_sqft ~ normal(280, 150);
-   beta_grade ~ normal(0,1);
-   sigma ~ exponential(0.01);
+   alpha ~ normal(6100, 3000);
+   beta_sqft_living ~ normal(240, 30);
+   beta_sqft_lot ~ normal(1, 0.7);
+   sigma ~ exponential(0.005);
    price ~ normal(mu, sigma);
 }
 
