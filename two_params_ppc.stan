@@ -5,16 +5,12 @@ data {
 }
 
 generated quantities {
-    real alpha =  normal_rng(44000, 2500);
-    real beta_sqft = normal_rng(280, 150);
-    real beta_grade = normal_rng(1, 0.5);
-    real sigma = exponential_rng(0.05);
+    real alpha =  normal_rng(-456000, 3000);
+    real beta_sqft = normal_rng(164, 30);
+    real beta_grade = normal_rng(82010, 0.7);
+    real sigma = exponential_rng(0.1);
     vector [N] price;
     for (i in 1:N) {
         price[i] = normal_rng(alpha + sqft[i]*beta_sqft + grade[i]*beta_grade, sigma);
     }
 }
-
-// real alpha =  normal_rng(44000, 2500);
-// real beta_sqft = normal_rng(280, 150);
-// real beta_grade = normal_rng(1, 0.5);
