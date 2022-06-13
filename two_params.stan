@@ -17,12 +17,12 @@ transformed parameters {
 }
 
 model {
-   alpha ~ normal(0, 1);
-   beta_sqft_living ~ normal(0, 1);
-   beta_grade ~ normal(0, 1);
-   // alpha ~ normal(-456000, 3000);
-   // beta_sqft_living ~ normal(164, 30);
-   // beta_grade ~ normal(82010, 0.7);
+   // alpha ~ normal(0, 1);
+   // beta_sqft_living ~ normal(0, 1);
+   // beta_grade ~ normal(0, 1);
+   alpha ~ normal(-456000, 3000);
+   beta_sqft_living ~ normal(164, 30);
+   beta_grade ~ normal(82010, 0.7);
    sigma ~ exponential(0.05);
    price ~ normal(mu, sigma);
 }
