@@ -2,7 +2,6 @@ data {
     int N;
     vector [N] sqft_living;
     vector [N] sqft_lot;
-    vector [N] grade;
     real price[N];
 }
 
