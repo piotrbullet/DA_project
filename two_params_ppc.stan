@@ -5,7 +5,7 @@ data {
 }
 
 generated quantities {
-    real alpha =  normal_rng(-589411, 3000);
+    real alpha =  normal_rng(-589411, 30000);
     real beta_sqft = normal_rng(153, 30);
     real beta_grade = normal_rng(104795, 0.7);
     real sigma = exponential_rng(0.1);
