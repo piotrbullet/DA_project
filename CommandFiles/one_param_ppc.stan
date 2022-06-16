@@ -4,9 +4,9 @@ data {
 }
 
 generated quantities {
-    real alpha =  lognormal_rng(0, 1);
-    real beta = lognormal_rng(0, 1);
-    real sigma = exponential_rng(1);
+    real alpha =  normal_rng(500000, 1000);
+    real<lower=0> beta = normal_rng(0, 1000);
+    real sigma = exponential_rng(0.01);
     vector[N] price;
     for (i in 1:N) {
         price[i] = normal_rng(alpha + sqft[i]*beta, sigma);
