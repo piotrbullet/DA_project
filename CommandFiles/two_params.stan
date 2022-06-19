@@ -2,14 +2,14 @@ data {
     int N;
     vector [N] sqft_living;
     vector [N] grade;
-    real price[N];
+    vector [N] price;
 }
 
 parameters {
    real alpha;
    real <lower=0> beta_sqft_living;
    real <lower=0> beta_grade;
-   real <lower=0> sigma;
+   real sigma;
 } 
 
 transformed parameters {
@@ -28,8 +28,8 @@ model {
 }
 
 generated quantities {
-   real prices[N];
-   real log_lik[N];
+   vector[N] prices;
+   vector[N] log_lik;
    for (i in 1:N) {
        prices[i] = normal_rng(mu[i], sigma);
        log_lik[i] = normal_lpdf(price[i] | mu[i], sigma);
