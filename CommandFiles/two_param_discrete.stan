@@ -21,9 +21,9 @@ transformed parameters {
 
 model {
    alpha ~ normal(360000, 150000);
-   beta_sqft ~ normal(0, 1000);
+   beta_sqft ~ normal(210, 100);
    for (i in 1:6) {
-      beta_grade[i] ~ normal(100000, 50000);
+      beta_grade[i] ~ normal(0, 1000000);
    }
    sigma ~ exponential(0.01);
    price ~ normal(mu, sigma);
