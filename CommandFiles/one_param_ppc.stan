@@ -4,8 +4,8 @@ data {
 }
 
 generated quantities {
-    real alpha =  normal_rng(500000, 50000);
-    real <lower=0> beta = normal_rng(0, 1000);
+    real alpha =  normal_rng(500000, 50000); // taken from the mean value of the prices
+    real <lower=0> beta = normal_rng(0, 1000); // 
     real sigma = exponential_rng(0.01);
     vector[N] price;
     for (i in 1:N) {
