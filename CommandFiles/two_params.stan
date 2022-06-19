@@ -28,8 +28,8 @@ model {
 }
 
 generated quantities {
-   vector[N] prices;
-   vector[N] log_lik;
+   vector [N] prices;
+   vector [N] log_lik;
    for (i in 1:N) {
        prices[i] = normal_rng(mu[i], sigma);
        log_lik[i] = normal_lpdf(price[i] | mu[i], sigma);

@@ -1,15 +1,15 @@
 data {
     int N;
     vector [N] sqft_living;
-    int grade [N];
-    real price[N];
+    vector [N] grade;
+    vector [N] price;
 }
 
 parameters {
    real alpha;
    real <lower=0> beta_sqft_living;
    vector [6] beta_grade;
-   real <lower=0> sigma;
+   real sigma;
 } 
 
 transformed parameters {

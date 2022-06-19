@@ -1,7 +1,7 @@
 data {
     int N;
     vector [N] sqft;
-    int grade [N];
+    vector [N] grade;
 }
 
 generated quantities {
