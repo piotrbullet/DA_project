@@ -14,6 +14,6 @@ generated quantities {
     real sigma = exponential_rng(0.01);
     vector [N] price;
     for (i in 1:N) {
-        price[i] = normal_rng(alpha + sqft[i]*beta_sqft + beta_grade[grade[i]], sigma);
+        price[i] = normal_rng(alpha + sqft[i]*beta_sqft + beta_grade[grade[i]+1], sigma);
     }
 }
