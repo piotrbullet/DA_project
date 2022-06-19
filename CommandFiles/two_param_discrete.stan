@@ -15,7 +15,7 @@ parameters {
 transformed parameters {
    vector [N] mu;
     for (i in 1:N) {
-        mu[i] = alpha + sqft[i]*beta + beta_grade[grade[i]+1];
+        mu[i] = alpha + sqft_living[i]*beta_sqft_living + beta_grade[grade[i]+1];
     }
 }
 
