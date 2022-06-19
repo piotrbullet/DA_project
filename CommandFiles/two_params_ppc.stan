@@ -5,9 +5,9 @@ data {
 }
 
 generated quantities {
-    real alpha =  normal_rng(500000, 1000);
-    real<lower=0> beta_sqft = normal_rng(0, 1000);
-    real<lower=0> beta_grade = normal_rng(0, 1000);
+    real alpha =  normal_rng(0, 1);
+    real<lower=0> beta_sqft = normal_rng(0, 1);
+    real<lower=0> beta_grade = normal_rng(0, 1);
     real sigma = exponential_rng(0.01);
     vector [N] price;
     for (i in 1:N) {
