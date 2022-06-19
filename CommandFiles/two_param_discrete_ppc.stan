@@ -9,7 +9,7 @@ generated quantities {
     real beta_sqft = normal_rng(210, 100);
     vector [6] beta_grade;
     for (i in 1:6) {
-        beta_grade[i] = normal_rng(100000, 50000);
+        beta_grade[i] = normal_rng(100000, 200000);
     }
     real sigma = exponential_rng(0.01);
     vector [N] price;
